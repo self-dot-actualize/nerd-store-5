@@ -3,10 +3,15 @@
       <div class="col-sm-8 col-sm-offset-2">
         <div class="product_single">
             <h2><%= @product.name %></h2>
-            <p class="<%= @product.price_class_name %>">Price: <%= number_to_currency(@product.price) %></p>
+            <% if @product.discounted? %>
+              <p>Discount item!</p>
+              <p class="discount-item">Price: <%= number_to_currency(@product.price) %></p>
+            <% else %>
+              <p>Everday value!</p>
+              <p>Price: <%= number_to_currency(@product.price) %></p>
+            <% end %>
             <p>Tax: <%= number_to_currency(@product.tax) %></p>
             <p>Total: <%= number_to_currency(@product.total) %></p>
-            <p><%= @product.sale_message %></p>
             <img src="<%= @product.image %>" alt="<%= @product.name %>" class="img-responsive">
             <p>Description: <%= @product.description %></p>
             <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
