@@ -6,7 +6,7 @@
           <div class="col-sm-4">
             <div class="product_single">
               <h2 class="product_header"><%= product.name %></h2>
-              <p>Price: <%= product.price %></p>
+              <p>Price: <%= number_to_currency(product.price) %></p>
               <a href="/products/<%= product.id %>" title="View Product"><img src="<%= product.image %>" alt="<%= product.name %>" class="img-responsive product_single_image"></a>
               <p>Description: <%= product.description %></p>
             </div>

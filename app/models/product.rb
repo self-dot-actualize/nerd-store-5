@@ -1,13 +1,13 @@
 class Product < ActiveRecord::Base
   def tax
-    return price.to_f * 0.09
+    return price * 0.09
   end
 
   def total
-    return price.to_f + tax
+    return price + tax
   end
 
   def discounted?
-    return price.to_f < 10
+    return price < 10
   end
 end
