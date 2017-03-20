@@ -37,6 +37,10 @@
             <li><a href="#">Link</a></li>
             <li><a href="#">Link</a></li>
             <li><a href="#">Link</a></li>
+            <%= form_tag "/products", method: :get do %>
+              Search: <input type="text" name="form_name">
+              <input type="submit" value="Search!">
+            <% end %>
             <li class="divider"></li>
             <li><a href="/products?sort_by=price&sort_order=asc">Sort by price ascending</a></li>
             <li><a href="/products?sort_by=price&sort_order=desc">Sort by price descending</a></li>

@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   def index
-    if params[:discounted] == "true"
+    if params[:form_name]
+      @products = Product.where("name LIKE ?", "%" + params[:form_name] + "%")
+    elsif params[:discounted] == "true"
       @products = Product.where("price < ?", 10)
     else
       sort_attribute = params[:sort_by] || "name"
