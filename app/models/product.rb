@@ -1,4 +1,10 @@
 class Product < ActiveRecord::Base
+  belongs_to :supplier
+
+  # def supplier
+  #   Supplier.find_by(id: self.supplier_id)
+  # end
+
   def tax
     return price * 0.09
   end
