@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   get "/products/:id/edit" => "products#edit"
   patch "/products/:id" => "products#update"
   delete "/products/:id" => "products#delete"
+
+  get "/signup" => "users#new"
+  post "/users" => "users#create"
 end
