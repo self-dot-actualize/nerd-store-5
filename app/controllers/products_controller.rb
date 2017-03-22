@@ -1,5 +1,11 @@
 class ProductsController < ApplicationController
   def index
+    if session[:count] == nil
+      session[:count] = 0
+    end
+    session[:count] += 1
+    @page_count = session[:count]
+
     if params[:form_name]
       @products = Product.where("name LIKE ?", "%" + params[:form_name] + "%")
     elsif params[:discounted] == "true"
