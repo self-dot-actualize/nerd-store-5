@@ -13,7 +13,9 @@
             <% end %>
             <p>Tax: <%= number_to_currency(@product.tax) %></p>
             <p>Total: <%= number_to_currency(@product.total) %></p>
-            <img src="<%= @product.image %>" alt="<%= @product.name %>" class="img-responsive">
+            <% @product.images.each do |image| %>
+              <img src="<%= image.url %>" alt="<%= @product.name %>" class="img-responsive">
+            <% end %>
             <p>Description: <%= @product.description %></p>
             <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
             <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
