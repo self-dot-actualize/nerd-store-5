@@ -21,6 +21,9 @@
             <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
             <%= form_tag "/orders", method: :post do %>
               Quantity: <input type="text" name="quantity">
+              <div>
+                Product id (please enter the number you see at the end of the url): <input type="text" name="product_id">
+              </div>
               <input type="submit" value="Place order!">
             <% end %>
         </div>
