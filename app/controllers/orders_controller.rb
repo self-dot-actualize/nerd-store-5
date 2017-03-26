@@ -10,7 +10,8 @@ class OrdersController < ApplicationController
       product_id: params[:product_id],
       subtotal: calculated_subtotal,
       tax: calculated_tax,
-      total: calculated_total
+      total: calculated_total,
+      user_id: current_user.id
     )
     order.save
     redirect_to "/orders/#{order.id}"
