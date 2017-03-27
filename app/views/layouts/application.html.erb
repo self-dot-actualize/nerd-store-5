@@ -49,6 +49,13 @@
             <li class="divider"></li>
             <li><a href="/products?discounted=true">Only show discounted products</a></li>
             <li class="divider"></li>
+            <!-- <li><a href="/products?category=Weapons">Only show weapons</a></li> -->
+            <!-- <li><a href="/products?category=Tools">Only show tools</a></li> -->
+            <!-- <li><a href="/products?category=Alien artifacts">Only show alien artifacts</a></li> -->
+            <% Category.all.each do |category| %>
+              <li><a href="/products?category=<%= category.name %>"><%= category.name %></a></li>
+            <% end %>
+            <li class="divider"></li>
             <li><a href="/products/random">Random product?</a></li>
           </ul>
         </li>
