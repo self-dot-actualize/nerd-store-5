@@ -3,7 +3,7 @@
 <h3>Product name: <%= @order.product.name %></h3>
 <% if @order.product.images.first %>
 <img src="<%= @order.product.images.first.url %>" alt="">
-<% end %>
+<% end %> 
 <h3>Email: <%= @order.user.email %></h3>
 <p>Quantity: <%= @order.quantity %></p>
 <h3>Subtotal: <%= @order.subtotal %></h3>
