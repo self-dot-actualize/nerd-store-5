@@ -9,7 +9,9 @@
                 <li><%= category.name %></li>
               <% end %>
             </ul>
+            <% if @product.supplier %>
             <h4>Made by <%= @product.supplier.name %></h4>
+            <% end %>
             <% if @product.discounted? %>
               <p>Discount item!</p>
               <p class="discount-item">Price: <%= number_to_currency(@product.price) %></p>

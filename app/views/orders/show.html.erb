@@ -1,7 +1,9 @@
 <h1>Order info:</h1>
 <h3>Order id: <%= 43532543245 + @order.id %></h3>
 <h3>Product name: <%= @order.product.name %></h3>
+<% if @order.product.images.first %>
 <img src="<%= @order.product.images.first.url %>" alt="">
+<% end %>
 <h3>Email: <%= @order.user.email %></h3>
 <p>Quantity: <%= @order.quantity %></p>
 <h3>Subtotal: <%= @order.subtotal %></h3>

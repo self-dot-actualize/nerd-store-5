@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  belongs_to :supplier
+  belongs_to :supplier, optional: true
   has_many :images
   has_many :orders
   has_many :category_products
