@@ -3,3 +3,6 @@
   <h2><%= carted_product.product.name %></h2>
   <h3>Quantity: <%= carted_product.quantity %></h3>
 <% end %>
+<%= form_tag "/orders", method: :post do %>
+  <input type="submit" class="btn btn-default" value="Buy now!">
+<% end %>
