@@ -2,6 +2,9 @@
 <% @carted_products.each do |carted_product| %>
   <h2><%= carted_product.product.name %></h2>
   <h3>Quantity: <%= carted_product.quantity %></h3>
+  <%= form_tag "/carted_products/#{carted_product.id}", method: :delete do %>
+    <input type="submit" value="Remove from cart">
+  <% end %>
 <% end %>
 <%= form_tag "/orders", method: :post do %>
   <input type="submit" class="btn btn-default" value="Buy now!">
