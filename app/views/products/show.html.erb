@@ -27,10 +27,10 @@
             <p>Description: <%= @product.description %></p>
             <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
             <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
-            <%= form_tag "/orders", method: :post do %>
+            <%= form_tag "/carted_products", method: :post do %>
               Quantity: <input type="text" name="quantity">
               <input type="hidden" name="product_id" value="<%= @product.id %>">
-              <input type="submit" value="Place order!">
+              <input type="submit" value="Add to cart!">
             <% end %>
         </div>
       </div>
