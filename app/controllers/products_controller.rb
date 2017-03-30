@@ -53,6 +53,11 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    unless current_user && current_user.admin
+      redirect_to "/"
+      return
+    end
+
     @product = Product.find_by(id: params[:id])
     render "edit.html.erb"
   end
