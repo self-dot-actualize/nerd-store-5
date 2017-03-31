@@ -7,6 +7,7 @@ class Product < ActiveRecord::Base
   has_many :carted_products
 
   validates :name, presence: true
+  validates :price, presence: true
 
   # def supplier
   #   Supplier.find_by(id: self.supplier_id)
