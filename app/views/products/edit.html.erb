@@ -3,7 +3,17 @@
     <div class="col-sm-8 col-sm-offset-2">
       <div class="product_single">
         <h1>Edit Product</h1>
-
+        <% if @product.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+         
+            <ul>
+            <% @product.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
         <%= form_tag "/products/#{@product.id}", method: :patch do %>
 
           <div>

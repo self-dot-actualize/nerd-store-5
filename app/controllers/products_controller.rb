@@ -65,13 +65,16 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find_by(id: params[:id])
-    @product.update(
+    if @product.update(
       name: params[:name],
       description: params[:description],
       price: params[:price]
     )
-    flash[:success] = "Product Updated"
-    redirect_to "/products/#{@product.id}"
+      flash[:success] = "Product Updated"
+      redirect_to "/products/#{@product.id}"
+    else
+      render "edit.html.erb"
+    end
   end
 
   def destroy
