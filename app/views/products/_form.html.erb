@@ -1,0 +1,33 @@
+<% if @product.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+ 
+    <ul>
+    <% @product.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_tag url, method: verb do %>
+  <div>
+    <%= label_tag :name %>
+    <input type="text" name="name" value="<%= @product.name %>">
+  </div>  
+
+  <div>
+    <%= label_tag :price %>
+    <input type="text" name="price" value="<%= @product.price %>">
+  </div>
+
+  <div>
+    <%= label_tag :image %>
+    <input type="text" name="image" value="<%= @product.images.first %>">
+  </div>
+
+  <div>
+    <%= label_tag :description %>
+    <input type="text" name="description" value="<%= @product.description %>">
+  </div>
+  <%= submit_tag message %>
+<% end %>
